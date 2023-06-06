@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "eike-task",
-  "author": "manuelJung",
+  "author": "Eike Foken <eikefoken@gmail.com>",
   "keywords": [
     "gatsby"
   ],
@@ -22,9 +22,9 @@
   },
   "devDependencies": {
     "@types/node": "^20.2.5",
-    "@types/react": "^18.2.7",
+    "@types/react": "^18.2.8",
     "@types/react-dom": "^18.2.4",
     "http-proxy-middleware": "^2.0.6",
-    "typescript": "^5.0.4"
+    "typescript": "^5.1.3"
   }
 }

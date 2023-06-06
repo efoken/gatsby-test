@@ -1,8 +1,8 @@
 # Tasks
 
-Hier ein paar Aufgaben damit wir einen kleinen Einblick in deine Fähigkeiten bekommen. Nach unserem Erstgespräch habe ich den Eindruck, dass du von den Fähigkeiten durchaus sehr fortgeschritten bist, deswegen ist der Schwierigkeitsgrad hier durchaus etwas gehoben (zwischen Senior und und Staff). 
+Hier ein paar Aufgaben damit wir einen kleinen Einblick in deine Fähigkeiten bekommen. Nach unserem Erstgespräch habe ich den Eindruck, dass du von den Fähigkeiten durchaus sehr fortgeschritten bist, deswegen ist der Schwierigkeitsgrad hier durchaus etwas gehoben (zwischen Senior und und Staff).
 
-Du musst nicht alle aufgaben lösen (die dritte ist nicht einfach) und jetzt auch nicht all zu viel zeit darin versenken. mir geht es in erster linie mal auszutesten wo deine grenzen sind und wie sicher du dich durch die Frontend-Architektur bewegst. Wenn etwas unklar ist, schreib mir einfach eine email. ich bin zu jeder tages und nachtzeit zu erreichen ;) 
+Du musst nicht alle aufgaben lösen (die dritte ist nicht einfach) und jetzt auch nicht all zu viel zeit darin versenken. mir geht es in erster linie mal auszutesten wo deine grenzen sind und wie sicher du dich durch die Frontend-Architektur bewegst. Wenn etwas unklar ist, schreib mir einfach eine email. ich bin zu jeder tages und nachtzeit zu erreichen ;)
 
 ## Komponenten bauen in einem statischen Kontext
 
