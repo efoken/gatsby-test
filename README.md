@@ -37,4 +37,6 @@ unter `config/de-de/index.ts` und `config/en-us/index.ts` liegen die länderspez
 
 Jedes Produkt hat einen b2b und einen b2c preis. wie könnte man am besten einen b2b/b2c toggle in die UI einbauen welcher bei klick die korrekten preise anzeigt. Evt sogar dass es auf eine statische weiße funktioniert (wenn ich den browser reloade soll bereits beim initialen laden das richtige angezeigt werden)
 
+### Lösungsansatz
+
 Könnte man z.B. über Context machen. Im Cookie die Einstellung merken, damit die gewünschte Einstellung nicht nur auf der Clientseite sondern auch auf der Serverseite bekannt ist.
