@@ -1,0 +1,43 @@
+.root {
+  position: relative;
+}
+
+.content {
+  column-gap: 20px;
+  display: flex;
+  margin-bottom: 20px;
+  overflow-x: scroll;
+  position: relative;
+  scrollbar-width: none;
+}
+
+.content::-webkit-scrollbar {
+  display: none;
+}
+
+.content > * {
+  max-width: 200px;
+  min-width: 200px;
+}
+
+.sentinel {
+  margin-left: -21px;
+  max-width: 1px;
+  min-width: 1px;
+}
+
+.indicatorWrapper {
+  background-color: lightgoldenrodyellow;
+  border-radius: 2px;
+  display: block;
+  height: 4px;
+  position: relative;
+  width: 100%;
+}
+
+.indicator {
+  background-color: gold;
+  border-radius: 2px;
+  height: 4px;
+  position: absolute;
+}
