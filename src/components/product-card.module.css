@@ -10,13 +10,13 @@
 }
 
 .title {
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
   font-size: 20px;
+  -webkit-line-clamp: 2;
   line-height: 1.5;
   margin-bottom: 8px;
   margin-top: 16px;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
   overflow: hidden;
 }
 
