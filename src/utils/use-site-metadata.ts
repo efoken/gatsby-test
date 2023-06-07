@@ -5,13 +5,7 @@ export default function useSiteMetadata() {
     query {
       site {
         siteMetadata {
-          config {
-            locale
-            currency
-            endpoints {
-              products
-            }
-          }
+          title
         }
       }
     }
