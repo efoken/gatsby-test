@@ -1,11 +1,19 @@
 {
-  "extends": ["airbnb", "airbnb/hooks", "airbnb-typescript", "prettier"],
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "airbnb-typescript",
+    "plugin:unicorn/recommended",
+    "prettier"
+  ],
   "parserOptions": {
     "project": "./tsconfig.json"
   },
   "rules": {
     "no-nested-ternary": "off",
+    "no-restricted-syntax": "off",
     "no-underscore-dangle": "off",
-    "react/require-default-props": "off"
+    "react/require-default-props": "off",
+    "unicorn/prevent-abbreviations": "off"
   }
 }
