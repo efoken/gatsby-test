@@ -1,8 +1,10 @@
 import type { GatsbyConfig } from 'gatsby'
-import getProducts from './server/get-products'
+import deDE from './src/config/de-de'
+import enUS from './src/config/en-us'
 
 const config: GatsbyConfig = {
   siteMetadata: {
+    ...(process.env.LOCALE === 'de-de' ? deDE : enUS),
     title: 'eike-task',
     siteUrl: 'https://www.yourdomain.tld'
   },
@@ -27,10 +29,7 @@ const config: GatsbyConfig = {
         ]
       }
     }
-  ],
-  developMiddleware: (app) => {
-    app.get('/api/products/:locale', getProducts)
-  }
+  ]
 }
 
 export default config

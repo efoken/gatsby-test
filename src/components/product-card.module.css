@@ -10,14 +10,13 @@
 }
 
 .title {
-  -webkit-box-orient: vertical;
-  display: -webkit-box;
   font-size: 20px;
-  -webkit-line-clamp: 2;
   line-height: 1.5;
   margin-bottom: 8px;
   margin-top: 16px;
   overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .price {

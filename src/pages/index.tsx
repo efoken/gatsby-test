@@ -1,34 +1,29 @@
-import { GetServerDataProps, GetServerDataReturn, PageProps } from 'gatsby'
+import { PageProps, graphql } from 'gatsby'
 import * as React from 'react'
 import ProductCard from '../components/product-card'
 import ProductSlider from '../components/product-slider'
-import Config from '../config/type'
-import ConfigContext from '../utils/config-context'
-import fetchProducts, { ProductsResponse } from '../utils/fetch-products'
+import { useConfig } from '../utils/config-provider'
+import fetchProducts from '../utils/fetch-products'
 import './global.css'
 
-type PageContextProps = {
-  config: Config
-}
+export default function Home({ data }: PageProps<Queries.HomeQuery>) {
+  const config = useConfig()
 
-type ServerDataProps = {
-  products: ProductsResponse
-}
-
-export default function Home({
-  pageContext,
-  serverData
-}: PageProps<object, PageContextProps, unknown, ServerDataProps>) {
-  const [products, setProducts] = React.useState(serverData.products)
+  const [products, setProducts] = React.useState(data.allProduct)
   const [isLoading, setLoading] = React.useState(false)
 
   const handleLoadMore = () => {
     setLoading(true)
-    fetchProducts(pageContext.config, products.page + 1).then(
+    fetchProducts(config.endpoints, products.pageInfo.currentPage).then(
       (nextProducts) => {
         setProducts((prevProducts) => ({
-          ...nextProducts,
-          hits: [...prevProducts.hits, ...nextProducts.hits]
+          ...prevProducts,
+          nodes: [...prevProducts.nodes, ...nextProducts.hits],
+          pageInfo: {
+            ...prevProducts.pageInfo,
+            currentPage: nextProducts.page + 1,
+            hasNextPage: nextProducts.hasNextPage
+          }
         }))
         setLoading(false)
       }
@@ -36,26 +31,35 @@ export default function Home({
   }
 
   return (
-    <ConfigContext.Provider value={pageContext.config}>
+    <>
       <h1>Products</h1>
       <ProductSlider
-        hasMore={products.hasNextPage}
+        hasMore={products.pageInfo.hasNextPage}
         isLoading={isLoading}
         onLoadMore={handleLoadMore}
       >
-        {products.hits.map((product) => (
+        {products.nodes.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </ProductSlider>
-    </ConfigContext.Provider>
+    </>
   )
 }
 
-export async function getServerData({
-  pageContext
-}: GetServerDataProps): GetServerDataReturn<ServerDataProps> {
-  const products = await fetchProducts(pageContext.config as Config)
-  return {
-    props: { products }
+export const query = graphql`
+  query Home {
+    allProduct(limit: 10) {
+      nodes {
+        id
+        title
+        priceB2C
+        priceB2B
+        image
+      }
+      pageInfo {
+        currentPage
+        hasNextPage
+      }
+    }
   }
-}
+`

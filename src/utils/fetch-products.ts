@@ -1,25 +1,24 @@
-import Config from '../config/type'
-
-export type Product = {
-  id: number
-  title: string
-  priceB2C: number
-  priceB2B: number
-  image: string
+type ProductsEndpoints = {
+  products: string
 }
 
-export type ProductsResponse = {
+type ProductsResponse = {
   page: number
   totalPages: number
   hpp: number
   hasNextPage: boolean
-  hits: Product[]
+  hits: Pick<
+    Queries.Product,
+    'id' | 'title' | 'priceB2C' | 'priceB2B' | 'image'
+  >[]
 }
 
-const PORT = process.env.NODE_ENV === 'development' ? 8000 : 9000
-
-export default async function fetchProducts(config: Config, page = 0) {
+export default async function fetchProducts(
+  endpoints: ProductsEndpoints,
+  page = 0,
+  hpp = 10
+) {
   return fetch(
-    `http://localhost:${PORT}${config.endpoints.products}?page=${page}`
+    `http://localhost:3000${endpoints.products}?page=${page}&hpp=${hpp}`
   ).then((response) => response.json()) as Promise<ProductsResponse>
 }
