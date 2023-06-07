@@ -16,8 +16,10 @@ export type ProductsResponse = {
   hits: Product[]
 }
 
+const PORT = process.env.NODE_ENV === 'development' ? 8000 : 9000
+
 export default async function fetchProducts(config: Config, page = 0) {
   return fetch(
-    `http://localhost:8000${config.endpoints.products}?page=${page}`
+    `http://localhost:${PORT}${config.endpoints.products}?page=${page}`
   ).then((response) => response.json()) as Promise<ProductsResponse>
 }
