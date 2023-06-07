@@ -2,8 +2,8 @@ import productsDE from './products.de-de'
 import productsUS from './products.en-us'
 
 export default function getProducts(req: any, res: any) {
-  const page = parseInt(req.query.page ?? '0', 10)
-  const hpp = parseInt(req.query.hpp ?? '10', 10)
+  const page = Number.parseInt(req.query.page ?? '0', 10)
+  const hpp = Number.parseInt(req.query.hpp ?? '10', 10)
   const { locale } = req.params
 
   const products =
