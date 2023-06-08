@@ -1,8 +1,17 @@
 import type { GatsbySSR } from 'gatsby'
 import * as React from 'react'
 import ConfigProvider from './src/utils/config-provider'
+import PriceModeScript from './src/utils/price-mode-script'
+import PriceModeProvider from './src/utils/price-mode-provider'
 
-// eslint-disable-next-line import/prefer-default-export
-export const wrapPageElement: GatsbySSR['wrapPageElement'] = ({ element }) => (
-  <ConfigProvider>{element}</ConfigProvider>
+export const wrapRootElement: GatsbySSR['wrapRootElement'] = ({ element }) => (
+  <ConfigProvider>
+    <PriceModeProvider>{element}</PriceModeProvider>
+  </ConfigProvider>
 )
+
+export const onRenderBody: GatsbySSR['onRenderBody'] = ({
+  setPreBodyComponents
+}) => {
+  setPreBodyComponents([<PriceModeScript key="price-mode" />])
+}

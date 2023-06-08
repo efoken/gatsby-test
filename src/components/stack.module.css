@@ -1,0 +1,4 @@
+.root {
+  column-gap: 12px;
+  display: flex;
+}

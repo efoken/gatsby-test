@@ -13,6 +13,7 @@
     "no-nested-ternary": "off",
     "no-restricted-syntax": "off",
     "no-underscore-dangle": "off",
+    "react/jsx-props-no-spreading": "off",
     "react/require-default-props": "off",
     "unicorn/prevent-abbreviations": "off"
   }

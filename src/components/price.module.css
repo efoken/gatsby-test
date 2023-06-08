@@ -1,0 +1,11 @@
+.root > * {
+  display: none;
+}
+
+:root[data-price-mode='b2b'] .b2b {
+  display: block;
+}
+
+:root[data-price-mode='b2c'] .b2c {
+  display: block;
+}
