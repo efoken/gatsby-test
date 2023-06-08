@@ -20,7 +20,7 @@ export default function PriceModeScript({ initialPriceMode = 'b2c' }: Props) {
           !(function() { try {
             var mode = localStorage.getItem('price-mode') || '${priceMode}'
             document.documentElement.dataset.priceMode = mode
-          } catch (e) {} })()
+          } catch (error) {} })()
         `
       }}
     />

@@ -1,13 +1,13 @@
-import express from 'express'
+import fastify from 'fastify'
 import getProducts from './get-products'
 
-const app = express()
+const server = fastify({ logger: true })
 
-app.use((_req, res, next) => {
-  res.append('Access-Control-Allow-Origin', ['*'])
-  next()
+server.addHook('preHandler', (_req, reply, done) => {
+  reply.header('Access-Control-Allow-Origin', ['*'])
+  done()
 })
 
-app.get('/api/products/:locale', getProducts)
+server.get('/api/products/:locale', getProducts)
 
-app.listen(3000)
+server.listen({ port: 3000 })

@@ -6,13 +6,14 @@ const config: GatsbyConfig = {
   siteMetadata: {
     ...(process.env.LOCALE === 'de-de' ? deDE : enUS),
     title: 'eike-task',
-    siteUrl: 'https://www.yourdomain.tld'
+    siteUrl: 'http://localhost'
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
+    'gatsby-plugin-fastify',
     {
       resolve: 'gatsby-omni-font-loader',
       options: {
